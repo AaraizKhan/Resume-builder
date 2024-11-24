@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Generator</title>
+    <link rel="stylesheet" href="form-styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CV Generator</h1>
+
+        <!-- User Image Section -->
+        <section>
+            <h2>User Image</h2>
+            <input type="file" id="user-image" accept="image/*">
+        </section>
+
+        <!-- Personal Information Section -->
+        <section>
+            <h2>Personal Information</h2>
+            <input type="text" id="full-name" placeholder="Full Name">
+            <input type="email" id="email" placeholder="Email">
+            <input type="text" id="phone" placeholder="Phone">
+            <input type="text" id="address" placeholder="Address">
+        </section>
+
+        <!-- Summary Section -->
+        <section>
+            <h2>Summary</h2>
+            <textarea id="summary" placeholder="Professional Summary"></textarea>
+        </section>
+
+        <!-- Sections for Education, Experience, Language, Skills -->
+        <section id="education-fields">
+            <h2>Education</h2>
+            <button id="add-education">Add Education</button>
+        </section>
+        <section id="experience-fields">
+            <h2>Experience</h2>
+            <button id="add-experience">Add Experience</button>
+        </section>
+        <section id="language-fields">
+            <h2>Language</h2>
+            <button id="add-language">Add Language</button>
+        </section>
+        <section id="skill-fields">
+            <h2>Skills</h2>
+            <button id="add-skill">Add Skill</button>
+        </section>
+
+        <!-- Generate CV Button -->
+        <div class="generate-cv-container">
+            <button id="generate-cv-btn">Generate My CV</button>
+        </div>
+
+        <!-- CV Display Area -->
+        <div id="cv-display" class="cv-display hidden">
+            <h2>Your CV</h2>
+            <div id="cv-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

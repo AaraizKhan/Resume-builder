@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your CV</title>
+    <link rel="stylesheet" href="form-styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Your CV</h1>
+
+        <div id="cv-content"></div>
+
+        <a href="form.html">Back to form</a>
+    </div>
+
+    <script>
+        // Get the data from localStorage
+        const cvData = JSON.parse(localStorage.getItem('cvData'));
+
+        if (cvData) {
+            // Construct the CV content
+            let cvHtml = `
+                <h2>${cvData.fullName}</h2>
+                <p><strong>Email:</strong> ${cvData.email}</p>
+                <p><strong>Phone:</strong> ${cvData.phone}</p>
+                <p><strong>Address:</strong> ${cvData.address}</p>
+                <p><strong>Summary:</strong> ${cvData.summary}</p>
+                <hr>
+            `;
+
+            // Education Section
+            if (cvData.education.length > 0) {
+                cvHtml += `<h3>Education</h3><ul>`;
+                cvData.education.forEach(edu => {
+                    cvHtml += `<li>${edu}</li>`;
+                });
+                cvHtml += `</ul><hr>`;
+            }
+
+            // Experience Section
+            if (cvData.experience.length > 0) {
+                cvHtml += `<h3>Experience</h3><ul>`;
+                cvData.experience.forEach(exp => {
+                    cvHtml += `<li>${exp}</li>`;
+                });
+                cvHtml += `</ul><hr>`;
+            }
+
+            // Languages Section
+            if (cvData.languages.length > 0) {
+                cvHtml += `<h3>Languages</h3><ul>`;
+                cvData.languages.forEach(lang => {
+                    cvHtml += `<li>${lang}</li>`;
+                });
+                cvHtml += `</ul><hr>`;
+            }
+
+            // Skills Section
+            if (cvData.skills.length > 0) {
+                cvHtml += `<h3>Skills</h3><ul>`;
+                cvData.skills.forEach(skill => {
+                    cvHtml += `<li>${skill}</li>`;
+                });
+                cvHtml += `</ul><hr>`;
+            }
+
+            // Display the generated CV
+            document.getElementById('cv-content').innerHTML = cvHtml;
+        } else {
+            document.getElementById('cv-content').innerHTML = "<p>No data available to display.</p>";
+        }
+    </script>
+</body>
+</html>
